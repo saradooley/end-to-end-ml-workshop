@@ -6,6 +6,23 @@
 
 # COMMAND ----------
 
+def display_slide(slide_id, slide_number):
+  displayHTML(f'''
+  <div style="width:1150px; margin:auto">
+  <iframe
+    src="https://docs.google.com/presentation/d/{slide_id}/embed?slide={slide_number}"
+    frameborder="0"
+    width="1150"
+    height="683"
+  ></iframe></div>
+  ''')
+
+# COMMAND ----------
+
+display_slide('1sU4HJcf56KZaSS3cbCx-zuDvkj9vrPKTIFSc-wuEkrI', 1)
+
+# COMMAND ----------
+
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 
@@ -58,6 +75,10 @@ dbutils.fs.rm(inference_tbl_path, recurse = True)
 
 # MAGIC %md
 # MAGIC ### Exploratory Data Analysis
+
+# COMMAND ----------
+
+display_slide('1sU4HJcf56KZaSS3cbCx-zuDvkj9vrPKTIFSc-wuEkrI', 2)
 
 # COMMAND ----------
 
@@ -176,6 +197,10 @@ avg_age_by_occupation.plot(kind = "bar", x = "occupation", y = "age")
 
 # COMMAND ----------
 
+display_slide('1sU4HJcf56KZaSS3cbCx-zuDvkj9vrPKTIFSc-wuEkrI', 3)
+
+# COMMAND ----------
+
 # Drop missing values
 clean_pdf = raw_df_pdf.dropna(axis = 0, how = 'any')
 
@@ -194,6 +219,10 @@ for column in categorical_cols:
 # MAGIC 
 # MAGIC * Bin the age into decades (min age 17 to max age 90)
 # MAGIC * take the log of features with skewed distributions (capital_gain, capital_loss)
+
+# COMMAND ----------
+
+display_slide('1sU4HJcf56KZaSS3cbCx-zuDvkj9vrPKTIFSc-wuEkrI', 4)
 
 # COMMAND ----------
 
@@ -317,6 +346,10 @@ spark.sql('''
 # MAGIC ### AutoML
 # MAGIC 
 # MAGIC <img src="https://databricks.com/wp-content/uploads/2021/05/Glass-Box-Approach-to-AutoML-1-light.png" width=1012/>
+
+# COMMAND ----------
+
+display_slide('1sU4HJcf56KZaSS3cbCx-zuDvkj9vrPKTIFSc-wuEkrI', 5)
 
 # COMMAND ----------
 
